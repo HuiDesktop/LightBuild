@@ -1,0 +1,3 @@
+[submodule "hdt-raylib-spine"]
+	path = hdt-raylib-spine
+	url = git@github.com:HuiDesktop/hdt-raylib-spine.git
