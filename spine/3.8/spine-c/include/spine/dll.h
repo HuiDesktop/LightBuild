@@ -45,7 +45,7 @@
 #ifdef SPINEPLUGIN_API
 #define SP_API SPINEPLUGIN_API
 #else
-#define SP_API
+#define SP_API DLLEXPORT
 #endif
 
 #endif /* SPINE_SHAREDLIB_H */
