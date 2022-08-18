@@ -31,6 +31,7 @@
 #ifndef SPINE_ANIMATIONSTATEDATA_H_
 #define SPINE_ANIMATIONSTATEDATA_H_
 
+#include <spine/dll.h>
 #include <spine/Animation.h>
 #include <spine/SkeletonData.h>
 
@@ -52,13 +53,13 @@ typedef struct spAnimationStateData {
 #endif
 } spAnimationStateData;
 
-spAnimationStateData* spAnimationStateData_create (spSkeletonData* skeletonData);
-void spAnimationStateData_dispose (spAnimationStateData* self);
+SPAPI spAnimationStateData* spAnimationStateData_create (spSkeletonData* skeletonData);
+SPAPI void spAnimationStateData_dispose (spAnimationStateData* self);
 
-void spAnimationStateData_setMixByName (spAnimationStateData* self, const char* fromName, const char* toName, float duration);
-void spAnimationStateData_setMix (spAnimationStateData* self, spAnimation* from, spAnimation* to, float duration);
+SPAPI void spAnimationStateData_setMixByName (spAnimationStateData* self, const char* fromName, const char* toName, float duration);
+SPAPI void spAnimationStateData_setMix (spAnimationStateData* self, spAnimation* from, spAnimation* to, float duration);
 /* Returns 0 if there is no mixing between the animations. */
-float spAnimationStateData_getMix (spAnimationStateData* self, spAnimation* from, spAnimation* to);
+SPAPI float spAnimationStateData_getMix (spAnimationStateData* self, spAnimation* from, spAnimation* to);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spAnimationStateData AnimationStateData;

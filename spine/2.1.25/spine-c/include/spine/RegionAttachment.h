@@ -31,6 +31,7 @@
 #ifndef SPINE_REGIONATTACHMENT_H_
 #define SPINE_REGIONATTACHMENT_H_
 
+#include <spine/dll.h>
 #include <spine/Attachment.h>
 #include <spine/Atlas.h>
 #include <spine/Slot.h>
@@ -58,10 +59,10 @@ typedef struct spRegionAttachment {
 	float uvs[8];
 } spRegionAttachment;
 
-spRegionAttachment* spRegionAttachment_create (const char* name);
-void spRegionAttachment_setUVs (spRegionAttachment* self, float u, float v, float u2, float v2, int/*bool*/rotate);
-void spRegionAttachment_updateOffset (spRegionAttachment* self);
-void spRegionAttachment_computeWorldVertices (spRegionAttachment* self, spBone* bone, float* vertices);
+SPAPI spRegionAttachment* spRegionAttachment_create (const char* name);
+SPAPI void spRegionAttachment_setUVs (spRegionAttachment* self, float u, float v, float u2, float v2, int/*bool*/rotate);
+SPAPI void spRegionAttachment_updateOffset (spRegionAttachment* self);
+SPAPI void spRegionAttachment_computeWorldVertices (spRegionAttachment* self, spBone* bone, float* vertices);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spVertexIndex VertexIndex;

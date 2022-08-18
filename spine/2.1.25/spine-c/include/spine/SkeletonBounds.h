@@ -31,6 +31,7 @@
 #ifndef SPINE_SKELETONBOUNDS_H_
 #define SPINE_SKELETONBOUNDS_H_
 
+#include <spine/dll.h>
 #include <spine/BoundingBoxAttachment.h>
 #include <spine/Skeleton.h>
 
@@ -44,11 +45,11 @@ typedef struct spPolygon {
 	int capacity;
 } spPolygon;
 
-spPolygon* spPolygon_create (int capacity);
-void spPolygon_dispose (spPolygon* self);
+SPAPI spPolygon* spPolygon_create (int capacity);
+SPAPI void spPolygon_dispose (spPolygon* self);
 
-int/*bool*/spPolygon_containsPoint (spPolygon* polygon, float x, float y);
-int/*bool*/spPolygon_intersectsSegment (spPolygon* polygon, float x1, float y1, float x2, float y2);
+SPAPI int/*bool*/spPolygon_containsPoint (spPolygon* polygon, float x, float y);
+SPAPI int/*bool*/spPolygon_intersectsSegment (spPolygon* polygon, float x1, float y1, float x2, float y2);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spPolygon Polygon;
@@ -68,29 +69,29 @@ typedef struct spSkeletonBounds {
 	float minX, minY, maxX, maxY;
 } spSkeletonBounds;
 
-spSkeletonBounds* spSkeletonBounds_create ();
-void spSkeletonBounds_dispose (spSkeletonBounds* self);
-void spSkeletonBounds_update (spSkeletonBounds* self, spSkeleton* skeleton, int/*bool*/updateAabb);
+SPAPI spSkeletonBounds* spSkeletonBounds_create ();
+SPAPI void spSkeletonBounds_dispose (spSkeletonBounds* self);
+SPAPI void spSkeletonBounds_update (spSkeletonBounds* self, spSkeleton* skeleton, int/*bool*/updateAabb);
 
 /** Returns true if the axis aligned bounding box contains the point. */
-int/*bool*/spSkeletonBounds_aabbContainsPoint (spSkeletonBounds* self, float x, float y);
+SPAPI int/*bool*/spSkeletonBounds_aabbContainsPoint (spSkeletonBounds* self, float x, float y);
 
 /** Returns true if the axis aligned bounding box intersects the line segment. */
-int/*bool*/spSkeletonBounds_aabbIntersectsSegment (spSkeletonBounds* self, float x1, float y1, float x2, float y2);
+SPAPI int/*bool*/spSkeletonBounds_aabbIntersectsSegment (spSkeletonBounds* self, float x1, float y1, float x2, float y2);
 
 /** Returns true if the axis aligned bounding box intersects the axis aligned bounding box of the specified bounds. */
-int/*bool*/spSkeletonBounds_aabbIntersectsSkeleton (spSkeletonBounds* self, spSkeletonBounds* bounds);
+SPAPI int/*bool*/spSkeletonBounds_aabbIntersectsSkeleton (spSkeletonBounds* self, spSkeletonBounds* bounds);
 
 /** Returns the first bounding box attachment that contains the point, or null. When doing many checks, it is usually more
  * efficient to only call this method if spSkeletonBounds_aabbContainsPoint returns true. */
-spBoundingBoxAttachment* spSkeletonBounds_containsPoint (spSkeletonBounds* self, float x, float y);
+SPAPI spBoundingBoxAttachment* spSkeletonBounds_containsPoint (spSkeletonBounds* self, float x, float y);
 
 /** Returns the first bounding box attachment that contains the line segment, or null. When doing many checks, it is usually
  * more efficient to only call this method if spSkeletonBounds_aabbIntersectsSegment returns true. */
-spBoundingBoxAttachment* spSkeletonBounds_intersectsSegment (spSkeletonBounds* self, float x1, float y1, float x2, float y2);
+SPAPI spBoundingBoxAttachment* spSkeletonBounds_intersectsSegment (spSkeletonBounds* self, float x1, float y1, float x2, float y2);
 
 /** Returns the polygon for the specified bounding box, or null. */
-spPolygon* spSkeletonBounds_getPolygon (spSkeletonBounds* self, spBoundingBoxAttachment* boundingBox);
+SPAPI spPolygon* spSkeletonBounds_getPolygon (spSkeletonBounds* self, spBoundingBoxAttachment* boundingBox);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spSkeletonBounds SkeletonBounds;

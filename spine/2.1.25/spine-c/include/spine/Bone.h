@@ -31,6 +31,7 @@
 #ifndef SPINE_BONE_H_
 #define SPINE_BONE_H_
 
+#include <spine/dll.h>
 #include <spine/BoneData.h>
 
 #ifdef __cplusplus
@@ -74,19 +75,19 @@ struct spBone {
 #endif
 };
 
-void spBone_setYDown (int/*bool*/yDown);
-int/*bool*/spBone_isYDown ();
+SPAPI void spBone_setYDown (int/*bool*/yDown);
+SPAPI int/*bool*/spBone_isYDown ();
 
 /* @param parent May be 0. */
-spBone* spBone_create (spBoneData* data, struct spSkeleton* skeleton, spBone* parent);
-void spBone_dispose (spBone* self);
+SPAPI spBone* spBone_create (spBoneData* data, struct spSkeleton* skeleton, spBone* parent);
+SPAPI void spBone_dispose (spBone* self);
 
-void spBone_setToSetupPose (spBone* self);
+SPAPI void spBone_setToSetupPose (spBone* self);
 
-void spBone_updateWorldTransform (spBone* self);
+SPAPI void spBone_updateWorldTransform (spBone* self);
 
-void spBone_worldToLocal (spBone* self, float worldX, float worldY, float* localX, float* localY);
-void spBone_localToWorld (spBone* self, float localX, float localY, float* worldX, float* worldY);
+SPAPI void spBone_worldToLocal (spBone* self, float worldX, float worldY, float* localX, float* localY);
+SPAPI void spBone_localToWorld (spBone* self, float localX, float localY, float* worldX, float* worldY);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spBone Bone;

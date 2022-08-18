@@ -31,6 +31,7 @@
 #ifndef SPINE_ANIMATIONSTATE_H_
 #define SPINE_ANIMATIONSTATE_H_
 
+#include <spine/dll.h>
 #include <spine/Animation.h>
 #include <spine/AnimationStateData.h>
 #include <spine/Event.h>
@@ -99,28 +100,28 @@ struct spAnimationState {
 };
 
 /* @param data May be 0 for no mixing. */
-spAnimationState* spAnimationState_create (spAnimationStateData* data);
-void spAnimationState_dispose (spAnimationState* self);
+SPAPI spAnimationState* spAnimationState_create (spAnimationStateData* data);
+SPAPI void spAnimationState_dispose (spAnimationState* self);
 
-void spAnimationState_update (spAnimationState* self, float delta);
-void spAnimationState_apply (spAnimationState* self, struct spSkeleton* skeleton);
+SPAPI void spAnimationState_update (spAnimationState* self, float delta);
+SPAPI void spAnimationState_apply (spAnimationState* self, struct spSkeleton* skeleton);
 
-void spAnimationState_clearTracks (spAnimationState* self);
-void spAnimationState_clearTrack (spAnimationState* self, int trackIndex);
+SPAPI void spAnimationState_clearTracks (spAnimationState* self);
+SPAPI void spAnimationState_clearTrack (spAnimationState* self, int trackIndex);
 
 /** Set the current animation. Any queued animations are cleared. */
-spTrackEntry* spAnimationState_setAnimationByName (spAnimationState* self, int trackIndex, const char* animationName,
+SPAPI spTrackEntry* spAnimationState_setAnimationByName (spAnimationState* self, int trackIndex, const char* animationName,
 		int/*bool*/loop);
-spTrackEntry* spAnimationState_setAnimation (spAnimationState* self, int trackIndex, spAnimation* animation, int/*bool*/loop);
+SPAPI spTrackEntry* spAnimationState_setAnimation (spAnimationState* self, int trackIndex, spAnimation* animation, int/*bool*/loop);
 
 /** Adds an animation to be played delay seconds after the current or last queued animation, taking into account any mix
  * duration. */
-spTrackEntry* spAnimationState_addAnimationByName (spAnimationState* self, int trackIndex, const char* animationName,
+SPAPI spTrackEntry* spAnimationState_addAnimationByName (spAnimationState* self, int trackIndex, const char* animationName,
 		int/*bool*/loop, float delay);
-spTrackEntry* spAnimationState_addAnimation (spAnimationState* self, int trackIndex, spAnimation* animation, int/*bool*/loop,
+SPAPI spTrackEntry* spAnimationState_addAnimation (spAnimationState* self, int trackIndex, spAnimation* animation, int/*bool*/loop,
 		float delay);
 
-spTrackEntry* spAnimationState_getCurrent (spAnimationState* self, int trackIndex);
+SPAPI spTrackEntry* spAnimationState_getCurrent (spAnimationState* self, int trackIndex);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spEventType EventType;

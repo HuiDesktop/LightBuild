@@ -31,6 +31,7 @@
 #ifndef SPINE_SKELETONDATA_H_
 #define SPINE_SKELETONDATA_H_
 
+#include <spine/dll.h>
 #include <spine/BoneData.h>
 #include <spine/SlotData.h>
 #include <spine/Skin.h>
@@ -67,22 +68,22 @@ typedef struct spSkeletonData {
 	spIkConstraintData** ikConstraints;
 } spSkeletonData;
 
-spSkeletonData* spSkeletonData_create ();
-void spSkeletonData_dispose (spSkeletonData* self);
+SPAPI spSkeletonData* spSkeletonData_create ();
+SPAPI void spSkeletonData_dispose (spSkeletonData* self);
 
-spBoneData* spSkeletonData_findBone (const spSkeletonData* self, const char* boneName);
-int spSkeletonData_findBoneIndex (const spSkeletonData* self, const char* boneName);
+SPAPI spBoneData* spSkeletonData_findBone (const spSkeletonData* self, const char* boneName);
+SPAPI int spSkeletonData_findBoneIndex (const spSkeletonData* self, const char* boneName);
 
-spSlotData* spSkeletonData_findSlot (const spSkeletonData* self, const char* slotName);
-int spSkeletonData_findSlotIndex (const spSkeletonData* self, const char* slotName);
+SPAPI spSlotData* spSkeletonData_findSlot (const spSkeletonData* self, const char* slotName);
+SPAPI int spSkeletonData_findSlotIndex (const spSkeletonData* self, const char* slotName);
 
-spSkin* spSkeletonData_findSkin (const spSkeletonData* self, const char* skinName);
+SPAPI spSkin* spSkeletonData_findSkin (const spSkeletonData* self, const char* skinName);
 
-spEventData* spSkeletonData_findEvent (const spSkeletonData* self, const char* eventName);
+SPAPI spEventData* spSkeletonData_findEvent (const spSkeletonData* self, const char* eventName);
 
-spAnimation* spSkeletonData_findAnimation (const spSkeletonData* self, const char* animationName);
+SPAPI spAnimation* spSkeletonData_findAnimation (const spSkeletonData* self, const char* animationName);
 
-spIkConstraintData* spSkeletonData_findIkConstraint (const spSkeletonData* self, const char* ikConstraintName);
+SPAPI spIkConstraintData* spSkeletonData_findIkConstraint (const spSkeletonData* self, const char* ikConstraintName);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spSkeletonData SkeletonData;

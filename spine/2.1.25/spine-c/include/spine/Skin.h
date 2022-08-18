@@ -31,6 +31,7 @@
 #ifndef SPINE_SKIN_H_
 #define SPINE_SKIN_H_
 
+#include <spine/dll.h>
 #include <spine/Attachment.h>
 
 #ifdef __cplusplus
@@ -49,19 +50,19 @@ typedef struct spSkin {
 #endif
 } spSkin;
 
-spSkin* spSkin_create (const char* name);
-void spSkin_dispose (spSkin* self);
+SPAPI spSkin* spSkin_create (const char* name);
+SPAPI void spSkin_dispose (spSkin* self);
 
 /* The Skin owns the attachment. */
-void spSkin_addAttachment (spSkin* self, int slotIndex, const char* name, spAttachment* attachment);
+SPAPI void spSkin_addAttachment (spSkin* self, int slotIndex, const char* name, spAttachment* attachment);
 /* Returns 0 if the attachment was not found. */
-spAttachment* spSkin_getAttachment (const spSkin* self, int slotIndex, const char* name);
+SPAPI spAttachment* spSkin_getAttachment (const spSkin* self, int slotIndex, const char* name);
 
 /* Returns 0 if the slot or attachment was not found. */
-const char* spSkin_getAttachmentName (const spSkin* self, int slotIndex, int attachmentIndex);
+SPAPI const char* spSkin_getAttachmentName (const spSkin* self, int slotIndex, int attachmentIndex);
 
 /** Attach each attachment in this skin if the corresponding attachment in oldSkin is currently attached. */
-void spSkin_attachAll (const spSkin* self, struct spSkeleton* skeleton, const spSkin* oldspSkin);
+SPAPI void spSkin_attachAll (const spSkin* self, struct spSkeleton* skeleton, const spSkin* oldspSkin);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spSkin Skin;

@@ -31,6 +31,7 @@
 #ifndef SPINE_SLOT_H_
 #define SPINE_SLOT_H_
 
+#include <spine/dll.h>
 #include <spine/Bone.h>
 #include <spine/Attachment.h>
 #include <spine/SlotData.h>
@@ -62,16 +63,16 @@ typedef struct spSlot {
 #endif
 } spSlot;
 
-spSlot* spSlot_create (spSlotData* data, spBone* bone);
-void spSlot_dispose (spSlot* self);
+SPAPI spSlot* spSlot_create (spSlotData* data, spBone* bone);
+SPAPI void spSlot_dispose (spSlot* self);
 
 /* @param attachment May be 0 to clear the attachment for the slot. */
-void spSlot_setAttachment (spSlot* self, spAttachment* attachment);
+SPAPI void spSlot_setAttachment (spSlot* self, spAttachment* attachment);
 
-void spSlot_setAttachmentTime (spSlot* self, float time);
-float spSlot_getAttachmentTime (const spSlot* self);
+SPAPI void spSlot_setAttachmentTime (spSlot* self, float time);
+SPAPI float spSlot_getAttachmentTime (const spSlot* self);
 
-void spSlot_setToSetupPose (spSlot* self);
+SPAPI void spSlot_setToSetupPose (spSlot* self);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spSlot Slot;

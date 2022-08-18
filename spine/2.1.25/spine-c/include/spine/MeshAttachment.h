@@ -31,6 +31,7 @@
 #ifndef SPINE_MESHATTACHMENT_H_
 #define SPINE_MESHATTACHMENT_H_
 
+#include <spine/dll.h>
 #include <spine/Attachment.h>
 #include <spine/Atlas.h>
 #include <spine/Slot.h>
@@ -68,9 +69,9 @@ typedef struct spMeshAttachment {
 	float width, height;
 } spMeshAttachment;
 
-spMeshAttachment* spMeshAttachment_create (const char* name);
-void spMeshAttachment_updateUVs (spMeshAttachment* self);
-void spMeshAttachment_computeWorldVertices (spMeshAttachment* self, spSlot* slot, float* worldVertices);
+SPAPI spMeshAttachment* spMeshAttachment_create (const char* name);
+SPAPI void spMeshAttachment_updateUVs (spMeshAttachment* self);
+SPAPI void spMeshAttachment_computeWorldVertices (spMeshAttachment* self, spSlot* slot, float* worldVertices);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spMeshAttachment MeshAttachment;

@@ -31,6 +31,7 @@
 #ifndef SPINE_SLOTDATA_H_
 #define SPINE_SLOTDATA_H_
 
+#include <spine/dll.h>
 #include <spine/BoneData.h>
 
 #ifdef __cplusplus
@@ -55,11 +56,11 @@ typedef struct spSlotData {
 #endif
 } spSlotData;
 
-spSlotData* spSlotData_create (const char* name, spBoneData* boneData);
-void spSlotData_dispose (spSlotData* self);
+SPAPI spSlotData* spSlotData_create (const char* name, spBoneData* boneData);
+SPAPI void spSlotData_dispose (spSlotData* self);
 
 /* @param attachmentName May be 0 for no setup pose attachment. */
-void spSlotData_setAttachmentName (spSlotData* self, const char* attachmentName);
+SPAPI void spSlotData_setAttachmentName (spSlotData* self, const char* attachmentName);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spSlotData SlotData;

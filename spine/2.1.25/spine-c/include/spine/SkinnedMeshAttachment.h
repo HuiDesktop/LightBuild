@@ -31,6 +31,7 @@
 #ifndef SPINE_SKINNEDMESHATTACHMENT_H_
 #define SPINE_SKINNEDMESHATTACHMENT_H_
 
+#include <spine/dll.h>
 #include <spine/Attachment.h>
 #include <spine/Slot.h>
 
@@ -71,9 +72,9 @@ typedef struct spSkinnedMeshAttachment {
 	float width, height;
 } spSkinnedMeshAttachment;
 
-spSkinnedMeshAttachment* spSkinnedMeshAttachment_create (const char* name);
-void spSkinnedMeshAttachment_updateUVs (spSkinnedMeshAttachment* self);
-void spSkinnedMeshAttachment_computeWorldVertices (spSkinnedMeshAttachment* self, spSlot* slot, float* worldVertices);
+SPAPI spSkinnedMeshAttachment* spSkinnedMeshAttachment_create (const char* name);
+SPAPI void spSkinnedMeshAttachment_updateUVs (spSkinnedMeshAttachment* self);
+SPAPI void spSkinnedMeshAttachment_computeWorldVertices (spSkinnedMeshAttachment* self, spSlot* slot, float* worldVertices);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spSkinnedMeshAttachment SkinnedMeshAttachment;

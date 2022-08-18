@@ -31,6 +31,7 @@
 #ifndef SPINE_ATTACHMENTLOADER_H_
 #define SPINE_ATTACHMENTLOADER_H_
 
+#include <spine/dll.h>
 #include <spine/Attachment.h>
 #include <spine/Skin.h>
 
@@ -52,10 +53,10 @@ typedef struct spAttachmentLoader {
 #endif
 } spAttachmentLoader;
 
-void spAttachmentLoader_dispose (spAttachmentLoader* self);
+SPAPI void spAttachmentLoader_dispose (spAttachmentLoader* self);
 
 /* Returns 0 to not load an attachment. If 0 is returned and spAttachmentLoader.error1 is set, an error occurred. */
-spAttachment* spAttachmentLoader_newAttachment (spAttachmentLoader* self, spSkin* skin, spAttachmentType type, const char* name,
+SPAPI spAttachment* spAttachmentLoader_newAttachment (spAttachmentLoader* self, spSkin* skin, spAttachmentType type, const char* name,
 		const char* path);
 
 #ifdef SPINE_SHORT_NAMES

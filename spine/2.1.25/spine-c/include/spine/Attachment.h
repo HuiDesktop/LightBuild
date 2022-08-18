@@ -31,6 +31,8 @@
 #ifndef SPINE_ATTACHMENT_H_
 #define SPINE_ATTACHMENT_H_
 
+#include <spine/dll.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -53,7 +55,7 @@ typedef struct spAttachment {
 #endif
 } spAttachment;
 
-void spAttachment_dispose (spAttachment* self);
+SPAPI void spAttachment_dispose (spAttachment* self);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spAttachmentType AttachmentType;
