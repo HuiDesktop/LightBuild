@@ -86,6 +86,7 @@ struct spAnimationState {
 	spTrackEntry** tracks;
 
 	void* rendererObject;
+	void* userData;
 
 #ifdef __cplusplus
 	spAnimationState() :
@@ -94,6 +95,7 @@ struct spAnimationState {
 		listener(0),
 		tracksCount(0),
 		tracks(0),
+		userData(0),
 		rendererObject(0) {
 	}
 #endif
