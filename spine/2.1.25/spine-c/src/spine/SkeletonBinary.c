@@ -402,7 +402,7 @@ static spAnimation* _spSkeletonBinary_readAnimation(spSkeletonBinary* self, cons
 						if (attachment->type == SP_ATTACHMENT_MESH)
 							vertices = SUB_CAST(spMeshAttachment, attachment)->vertices;
 						else
-							vertices = MALLOC(float, vertexCount);
+							vertices = CALLOC(float, vertexCount);
 					}
 					else {
 						vertices = MALLOC(float, vertexCount);
@@ -423,7 +423,7 @@ static spAnimation* _spSkeletonBinary_readAnimation(spSkeletonBinary* self, cons
 						}
 					}
 
-					spFFDTimeline_setFrame(timeline, i, time, vertices);
+					spFFDTimeline_setFrame(timeline, frameIndex, time, vertices);
 					if (frameIndex < frameCount - 1) readCurve(input, SUPER(timeline), frameIndex);
 				}
 
