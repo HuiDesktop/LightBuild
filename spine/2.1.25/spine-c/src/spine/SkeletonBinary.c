@@ -552,7 +552,6 @@ arrayHelper* createArrayHelper(void** header, size_t elementSize, int ensure, in
 	r->end = ((char*)r->header) + elementSize * ensure;
 	r->current = r->header;
 	*header = r->header;
-	fprintf(stderr, "%p %p %p %p\n", r->header, r->current, r->end, r->countPtr);
 	return r;
 }
 
