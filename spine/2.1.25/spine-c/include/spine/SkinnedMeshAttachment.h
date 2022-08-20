@@ -75,6 +75,7 @@ typedef struct spSkinnedMeshAttachment {
 SPAPI spSkinnedMeshAttachment* spSkinnedMeshAttachment_create (const char* name);
 SPAPI void spSkinnedMeshAttachment_updateUVs (spSkinnedMeshAttachment* self);
 SPAPI void spSkinnedMeshAttachment_computeWorldVertices (spSkinnedMeshAttachment* self, spSlot* slot, float* worldVertices);
+void spSkinnedMeshAttachment_computeWorldVertices1 (spSkinnedMeshAttachment* self, spSlot* slot, float* worldVertices, int length);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spSkinnedMeshAttachment SkinnedMeshAttachment;

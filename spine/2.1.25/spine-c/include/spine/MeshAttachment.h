@@ -72,6 +72,7 @@ typedef struct spMeshAttachment {
 SPAPI spMeshAttachment* spMeshAttachment_create (const char* name);
 SPAPI void spMeshAttachment_updateUVs (spMeshAttachment* self);
 SPAPI void spMeshAttachment_computeWorldVertices (spMeshAttachment* self, spSlot* slot, float* worldVertices);
+void spMeshAttachment_computeWorldVertices1 (spMeshAttachment* self, spSlot* slot, float* worldVertices, int length);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spMeshAttachment MeshAttachment;
