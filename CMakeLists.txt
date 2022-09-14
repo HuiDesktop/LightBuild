@@ -17,6 +17,7 @@ set(SPINE_VERSION 3.8)
 set(BUILD_SHARED_LIBS ON)
 set(RAYLIB_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/raylib/src)
 
+add_subdirectory(ipc)
 add_subdirectory(raylib)
 add_subdirectory(spine/${SPINE_VERSION})
 add_subdirectory(hdt-raylib-spine)
