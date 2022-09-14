@@ -22,3 +22,17 @@ add_subdirectory(raylib)
 add_subdirectory(spine/${SPINE_VERSION})
 add_subdirectory(hdt-raylib-spine)
 add_subdirectory(live2d/lib)
+
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+set_property(TARGET event PROPERTY FOLDER "HuIPC")
+set_property(TARGET tests PROPERTY FOLDER "HuIPC")
+set_property(TARGET tools PROPERTY FOLDER "HuIPC")
+set_property(TARGET sharedMemory PROPERTY FOLDER "HuIPC")
+set_property(TARGET huMessageQueue PROPERTY FOLDER "HuIPC")
+
+set_property(TARGET live2d-framework PROPERTY FOLDER "Live2D")
+set_property(TARGET hdt-raylib-live2d PROPERTY FOLDER "Live2D")
+
+set_property(TARGET spine-c PROPERTY FOLDER "Spine")
+set_property(TARGET hdt-raylib-spine PROPERTY FOLDER "Spine")
