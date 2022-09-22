@@ -1,0 +1,5 @@
+add_library(llhooks SHARED mouse.h mouse.c keyboard.h keyboard.c "thread.h" "thread.c")
+target_include_directories(llhooks PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(llhooks_test test.c)
+target_include_directories(llhooks_test PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(llhooks_test PRIVATE llhooks)
