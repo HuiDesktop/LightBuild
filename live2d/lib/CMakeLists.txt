@@ -21,27 +21,6 @@ else()
   message(FATAL_ERROR "[${APP_NAME}] Invalid linker flag ${CMAKE_EXE_LINKER_FLAGS}.")
 endif()
 
-# Detect compiler.
-if(MSVC_VERSION MATCHES 1800)
-  # Visual Studio 2013
-  set(COMPILER 120)
-elseif(MSVC_VERSION MATCHES 1900)
-  # Visual Studio 2015
-  set(COMPILER 140)
-elseif(MSVC_VERSION GREATER_EQUAL 1910 AND MSVC_VERSION LESS 1920)
-  # Visual Studio 2017
-  set(COMPILER 141)
-elseif(MSVC_VERSION GREATER_EQUAL 1920 AND MSVC_VERSION LESS 1930)
-  # Visual Studio 2019
-  set(COMPILER 142)
-elseif(MSVC)
-  # no Visual Studio 2022 :(
-  set(COMPILER 142)
-  # message(FATAL_ERROR "[${APP_NAME}] Unsupported Visual C++ compiler used.")
-else()
-  message(FATAL_ERROR "[${APP_NAME}] Unsupported compiler used.")
-endif()
-
 # Detect core crt.
 if(CORE_CRL_MD)
   set(CRT MD)
@@ -53,13 +32,11 @@ endif()
 # Import as static library.
 add_library(Live2DCubismCore STATIC IMPORTED)
 # Find library path.
-set(CORE_LIB_SUFFIX ${CORE_PATH}/lib/windows/${ARCH}/${COMPILER})
+set(CORE_LIB_SUFFIX ${CORE_PATH}/dll/windows/${ARCH})
 set_target_properties(Live2DCubismCore
   PROPERTIES
-    IMPORTED_LOCATION_DEBUG
-      ${CORE_LIB_SUFFIX}/Live2DCubismCore_${CRT}d.lib
     IMPORTED_LOCATION
-      ${CORE_LIB_SUFFIX}/Live2DCubismCore_${CRT}.lib
+      ${CORE_LIB_SUFFIX}/Live2DCubismCore.lib
     INTERFACE_INCLUDE_DIRECTORIES
       ${CORE_PATH}/include
 )
@@ -89,3 +66,12 @@ target_link_libraries(${LIB_NAME}
 
 # Build in multi-process.
 target_compile_options(${LIB_NAME} PRIVATE /MP)
+
+# Copy Core dll to build result dir
+add_custom_command(
+  TARGET ${LIB_NAME}
+  POST_BUILD
+  COMMAND
+    ${CMAKE_COMMAND} -E
+      copy ${CORE_LIB_SUFFIX}/Live2DCubismCore.dll $<TARGET_FILE_DIR:${LIB_NAME}>
+)
