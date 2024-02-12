@@ -80,7 +80,7 @@ csmBool CubismOffscreenFrame_OpenGLES2::CreateOffscreenFrame(csmUint32 displayBu
         _isColorBufferInherited = true;
     }
 
-    fbo = rlLoadFramebuffer(114, 514); // HINT: useless parameter?
+    fbo = rlLoadFramebuffer();
     rlFramebufferAttach(fbo, _colorBuffer, RL_ATTACHMENT_COLOR_CHANNEL0, RL_ATTACHMENT_TEXTURE2D, 0);
     rlDisableFramebuffer();
 
